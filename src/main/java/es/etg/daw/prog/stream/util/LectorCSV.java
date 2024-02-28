@@ -1,27 +1,45 @@
 package es.etg.daw.prog.stream.util;
 
 import es.etg.daw.prog.stream.model.Alumno;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.StringTokenizer;
+
 
 
 public class LectorCSV extends Lector{
 
     @Override
     public List<Alumno> leer(String codigo) {
-        //YO VOY A LEER TODAS LAS FILAS, FILA A FILA HASTA EL INFINITO Y MAS 
-        //la primera la quito
-        //hasta leer una línea vacía
+        boolean primeraFila = true;
+        List<Alumno> alumnos = new ArrayList<>();
 
-        //delimitadir = "\n"
+        StringTokenizer st = new StringTokenizer(codigo, "\n");
+        while(st.hasMoreTokens()){
+            String fila = st.nextToken();
+
+            if(!primeraFila && !"".equals(fila))
+                alumnos.add(procesar(fila));
+
+            primeraFila = false;
+        }
+
+        return alumnos;
     }
 
-    privado Alumno procesar(String fila){
-        //YO VOY A COGER UNA FILA, Y VOY A SACAR EL NOMRE, APELLIDOS Y DNI
-        // Y ESTO LO METO EN UN ALUMNO.
+    private Alumno procesar(String fila){
+        String nombre;
+        String apellido;
+        String dni;
 
-        Julián,Parra,1a
-        //delimitador: =","
-        new Alumno(Julian, Parra, 1a)
+        StringTokenizer st = new StringTokenizer(fila, ",");
+
+        nombre = st.nextToken();
+        apellido = st.nextToken();
+        dni = st.nextToken();
+
+        return new Alumno(nombre, apellido, dni);
+
     }
     
 }
