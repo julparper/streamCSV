@@ -1,13 +1,19 @@
 package es.etg.daw.prog.stream.model;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class Instituto implements Matriculable{
     
     private List<Alumno> alumnos = new ArrayList<>();
 
+    /**
+     * Devuelve la lista ordenada por nombre ascendente
+     * @return lista de alumnos ordenada de forma ascendente por nombre
+     */
     public List<Alumno> getAlumnos() {
+        Collections.sort(alumnos);
         return alumnos;
     }
 

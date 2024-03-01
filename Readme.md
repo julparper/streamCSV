@@ -8,6 +8,15 @@ Dado el fichero de ```csv``` (fichero de datos separados por comas), se pide:
   - Qué estructura de paquetes debemos utilizar?
 - Implementar la solución para que dada una variable String con el contenido de ese fichero, devuelva los datos en objetos.
 
+
+Actualización:
+
+- Ordenar los alumnos por el nombre.
+
+Actualización:
+
+- Permitir ordenar por apellido y dni
+
 Repositorio GIT: 
 
 - https://github.com/julparper/streamCSV

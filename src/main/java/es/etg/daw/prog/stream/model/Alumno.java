@@ -1,6 +1,13 @@
 package es.etg.daw.prog.stream.model;
 
-public class Alumno {
+import java.util.Comparator;
+
+/**
+ * Comparable define un orden natural -> compareTo(o)
+ * Comparator ordenación secundaria, se comparan dos objetos. compare(o, o)
+ */
+public class Alumno implements Comparator<Alumno>,
+                         Comparable<Alumno>{
     
     private String nombre;
     private String apellidos;
@@ -28,6 +35,14 @@ public class Alumno {
     }
     public void setDni(String dni) {
         this.dni = dni;
+    }
+    @Override
+    public int compareTo(Alumno o) {
+        return nombre.compareTo(o.nombre);
+    }
+    @Override
+    public int compare(Alumno al1, Alumno al2) {
+        return al1.getNombre().compareTo(al2.getNombre());
     }
 
 }

@@ -7,9 +7,20 @@ import java.util.StringTokenizer;
 
 
 
+/**
+ * Procesa ficheros en formato CSV y los convierte en 
+ * Alumnos.
+ * 
+ */
 public class LectorCSV extends Lector{
 
     @Override
+    /**
+     * Este método procesa una fila en CSV, el primer valor es el
+     * nombre, el segundo el apellido y el tercero el dni.
+     * @param fila Es un String con los datos de un alumno separados por coma
+     * @return Un objeto de tipo Alumno con los datos leídos de la fila.
+     */
     public List<Alumno> leer(String codigo) {
         boolean primeraFila = true;
         List<Alumno> alumnos = new ArrayList<>();
@@ -27,6 +38,12 @@ public class LectorCSV extends Lector{
         return alumnos;
     }
 
+    /**
+     * Este método procesa una fila en CSV, el primer valor es el
+     * nombre, el segundo el apellido y el tercero el dni.
+     * @param fila Es un String con los datos de un alumno separados por coma
+     * @return Un objeto de tipo Alumno con los datos leídos de la fila.
+     */
     private Alumno procesar(String fila){
         String nombre;
         String apellido;

@@ -6,6 +6,7 @@ package es.etg.daw.prog.stream;
  */
 public class App 
 {
+
     public static void main( String[] args )
     {
         String cadena = "Nombre,Apellidos,DNI\n" + //
