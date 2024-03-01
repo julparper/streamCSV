@@ -19,6 +19,7 @@ Actualización:
 
 Actualización:
 
+- Si se intenta leer una cadena CSV vacía, generará una excepción de la aplicación.
 
 
 Repositorio GIT: 

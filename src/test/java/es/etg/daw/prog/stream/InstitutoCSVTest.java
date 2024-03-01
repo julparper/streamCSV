@@ -6,9 +6,11 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import java.util.Collections;
 import java.util.List;
 
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
+import es.etg.daw.prog.stream.exception.LectorException;
 import es.etg.daw.prog.stream.model.Alumno;
 import es.etg.daw.prog.stream.model.Instituto;
 import es.etg.daw.prog.stream.model.comparador.ApellidoComparator;
@@ -32,7 +34,7 @@ public class InstitutoCSVTest {
     
     
     @BeforeAll
-    public static void cargarFicheroCSV(){
+    public static void cargarFicheroCSV() throws Exception{
         
         Lector lector = new LectorCSV();
         instituto = new Instituto();
@@ -40,6 +42,17 @@ public class InstitutoCSVTest {
         instituto.matricular(lector.leer(cadena));
 
         
+    }
+
+    @Test 
+    public void cargarCadenaVaciaTest(){
+        String cadena = "";
+        Lector lector = new LectorCSV();
+
+        LectorException thorwn = Assertions.assertThrows(LectorException.class, () -> {
+            lector.leer(cadena);
+        });
+
     }
 
     @Test

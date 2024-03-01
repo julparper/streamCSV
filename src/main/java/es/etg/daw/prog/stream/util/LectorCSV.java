@@ -1,5 +1,6 @@
 package es.etg.daw.prog.stream.util;
 
+import es.etg.daw.prog.stream.exception.LectorException;
 import es.etg.daw.prog.stream.model.Alumno;
 import java.util.ArrayList;
 import java.util.List;
@@ -21,9 +22,12 @@ public class LectorCSV extends Lector{
      * @param fila Es un String con los datos de un alumno separados por coma
      * @return Un objeto de tipo Alumno con los datos leídos de la fila.
      */
-    public List<Alumno> leer(String codigo) {
+    public List<Alumno> leer(String codigo) throws LectorException {
         boolean primeraFila = true;
         List<Alumno> alumnos = new ArrayList<>();
+
+        //Comprobamos que la cadena tiene contenido, si no devuelve una excepción.
+        comprobar(codigo);
 
         StringTokenizer st = new StringTokenizer(codigo, "\n");
         while(st.hasMoreTokens()){
@@ -36,6 +40,13 @@ public class LectorCSV extends Lector{
         }
 
         return alumnos;
+    }
+
+    private void comprobar(String cadena) throws LectorException{
+
+        if(cadena == null || cadena.trim().length()==0)
+            throw new LectorException();
+
     }
 
     /**
